@@ -1,58 +1,51 @@
 \documentclass[12pt,a4paper,oneside]{book}
-\input{preamble}
+
+% --- المحرك السيادي المدمج ---
+\usepackage[utf8]{inputenc}
+\usepackage[LFE,LAE,T1]{fontenc}
+\usepackage[arabic,english]{babel}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{parallel} 
+\usepackage{geometry}
+\geometry{margin=2cm}
+
+\definecolor{SovereignBlue}{RGB}{0,33,71}
+\definecolor{GoldCrown}{RGB}{212,175,55}
+
+\newcommand{\bilingual}[2]{%
+\begin{Parallel}[v]{0.48\textwidth}{0.48\textwidth}
+\ParallelLText{\selectlanguage{arabic}#1}
+\ParallelRText{\selectlanguage{english}#2}
+\end{Parallel}
+\vspace{0.8cm}
+}
 
 \begin{document}
 
-% 1. الغلاف السيادي
+% --- الغلاف الملكي السيادي ---
 \begin{titlepage}
+\pagecolor{SovereignBlue}
 \centering
 \vspace*{1.5cm}
-
-\begin{tcolorbox}[colframe=SovereignBlue, colback=white, arc=20pt, linewidth=5pt, center, width=0.9\textwidth]
-    \centering
-    \vspace{0.8cm}
-    {\Huge\bfseries\color{SovereignBlue} المجلد الكوني اليقين}\\[0.5cm]
-    {\Large\bfseries مصفوفة الإدراك الهندسي والزمني}\\[0.3cm]
-    {\small الإصدار السيادي الموحد — 2026}
-    \vspace{0.8cm}
-\end{tcolorbox}
-
-\vspace{2cm}
-
 \begin{tikzpicture}
-    \draw[line width=5pt, SovereignBlue] (0,0) circle (3.5);
-    \node at (0,0.3) {\fontsize{55}{65}\selectfont\bfseries 34400};
-    \node at (0,-1.2) {\Large\bfseries القيمة السيادية الموحدة};
+    \draw[line width=3pt, GoldCrown] (0,0) circle (4.2);
+    \node at (0,0.5) {\fontsize{65}{75}\selectfont\bfseries\color{white} 34400};
+    \node at (0,-1.2) {\Large\bfseries\color{GoldCrown} THE UNIFIED CONSTANT};
 \end{tikzpicture}
-
+\vspace{1.5cm}
+{\Huge\bfseries\color{GoldCrown} المجلد الكوني اليقين}\\[0.5cm]
+{\Large\bfseries\color{white} THE COSMIC CERTAINTY VOLUME}\\[0.8cm]
 \vfill
-
-{\Huge\bfseries الباحث: هشام شيكر}\\[0.4cm]
-{\large المرجعية العلمية: بيانات الإمام المهدي ناصر محمد اليماني}\\[0.8cm]
-
-\hrule
-\vspace{0.4cm}
-{\small تم التوثيق الرقمي في: 13 فبراير 2026 م}
+{\Large\color{white} الباحث: \textbf{هشام شيكر}}
 \end{titlepage}
 
-% 2. الفهرس التلقائي
+\nopagecolor 
 \newpage
-\tableofcontents 
-\newpage
-
-% 3. مقدمة اليقين
-\chapter*{مقدمة اليقين}
-\addcontentsline{toc}{chapter}{مقدمة اليقين}
-بسم الله ميزان الحق والعدل. نضع بين يدي العالم هذا "المجلد الكوني اليقين"، لتوثيق الثوابت السيادية وعلى رأسها الثابت الموحد \textbf{34400}، ونسبة الإضاءة الكونية \textbf{432/55}، ومركزية مكة المكرمة كقطب لليابسة.
-
-% 4. الفصل الأول
-\chapter{مركزية بكة ومصفوفة الإدراك}
-\section{البرهان الإحداثي}
-إن مكة المكرمة هي المركز المطلق لليابسة هندسياً، وهذا البحث يعيد تعريف إحداثيات الكوكب بناءً على هذا المركز السيادي.
-
-% 5. الفصل الثاني
-\chapter{الثوابت الكونية وقانون الكدح}
-\section{العجز الكوني}
-نوثق هنا العجز التراكمي في ساعات شروق القمر البالغ 10 ساعات، وعلاقته بالثابت 800 و 43 لإنتاج القيمة السيادية 34400.
-
+\chapter{مقدمة اليقين | Introduction}
+\bilingual{
+بسم الله ميزان الحق. نوثق الثابت الموحد \textbf{34400} ونسبة الإضاءة \textbf{432/55}، مع مركزية بكة المطلقة.
+}{
+In the name of Allah, we document the Unified Constant \textbf{34400} and the Illumination Ratio \textbf{432/55}, with the absolute centrality of Bakkah.
+}
 \end{document}
