@@ -1,52 +1,38 @@
-% ---------- إعدادات الطباعة الاحترافية ----------
-\usepackage[top=2.8cm,bottom=2.8cm,left=2.5cm,right=2.5cm]{geometry}
-\usepackage{setspace}
-\onehalfspacing
-
 % ---------- المحرك واللغة ----------
 \usepackage{fontspec}
 \usepackage{polyglossia}
-\usepackage{ragged2e}
-\usepackage{listings}
-
-\setmainlanguage{arabic}
+\setmainlanguage[numerals=maghrib]{arabic}
 \setotherlanguage{english}
 \newfontfamily\arabicfont[Script=Arabic,Scale=1.2]{Amiri}
 
-% ---------- الحزم العلمية ----------
-\usepackage{amsmath,amssymb}
-\usepackage{unicode-math}
-\setmathfont{Latin Modern Math}
-\usepackage{tikz}
-\usepackage{pgfplots}
-\usepackage{xcolor}
-\usepackage{tcolorbox}
-\usepackage{hyperref}
-\usepackage{titlesec}
+% ---------- إضافة حزمة Parallel (مهمة جداً للأعمدة الثنائية) ----------
+\usepackage{parallel}
 
-\pgfplotsset{compat=1.18}
-\tcbuselibrary{skins,breakable}
+% ---------- الثوابت السيادية الموحدة ----------
+\newcommand{\unified}{34400}           % الثابت الكوني الموحد
+\newcommand{\saqrOrbit}{51840000000}    % مدار سقر (كم)
+\newcommand{\earthCircum}{43200}        % محيط الأرض (كم)
+\newcommand{\sunDist}{144000000}        % مسافة الشمس (كم)
 
 % ---------- الألوان السيادية ----------
+\usepackage{xcolor}
 \definecolor{SovereignBlue}{RGB}{0,33,71}
-\definecolor{WarningRed}{RGB}{140,20,20}
-\definecolor{CodeGray}{gray}{0.45}
+\definecolor{GoldCrown}{RGB}{212,175,55}
 
-% ---------- تنسيق العناوين ----------
-\titleformat{\chapter}
-  {\color{SovereignBlue}\Huge\bfseries}
-  {\thechapter}{1em}{}
-\titleformat{\section}
-  {\color{SovereignBlue}\Large\bfseries}
-  {\thesection}{1em}{}
+% ---------- صناديق البراهين ----------
+\usepackage{tcolorbox}
+\newtcolorbox{sovereignbox}[1]{
+  colback=SovereignBlue!5,
+  colframe=SovereignBlue,
+  fonttitle=\bfseries,
+  title=#1
+}
 
-% ---------- الثابت السيادي ----------
-\newcommand{\unified}{34400}
-
-\hypersetup{
-    colorlinks=true,
-    linkcolor=SovereignBlue,
-    urlcolor=SovereignBlue,
-    pdftitle={المجلد الكوني اليقين – النسخة العربية},
-    pdfauthor={هشام شيكر}
+% أمر الكتابة ثنائية اللغة
+\newcommand{\bilingual}[2]{%
+\begin{Parallel}[v]{0.48\textwidth}{0.48\textwidth}
+\ParallelLText{\selectlanguage{arabic}#1}
+\ParallelRText{\selectlanguage{english}#2}
+\end{Parallel}
+\vspace{0.8cm}
 }
