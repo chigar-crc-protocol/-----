@@ -1,38 +1,41 @@
-% ---------- المحرك واللغة ----------
-\usepackage{fontspec}
-\usepackage{polyglossia}
-\setmainlanguage[numerals=maghrib]{arabic}
-\setotherlanguage{english}
-\newfontfamily\arabicfont[Script=Arabic,Scale=1.2]{Amiri}
+% ========== preamble.tex – النسخة السيادية الموحدة ==========
 
-% ---------- إضافة حزمة Parallel (مهمة جداً للأعمدة الثنائية) ----------
-\usepackage{parallel}
-
-% ---------- الثوابت السيادية الموحدة ----------
-\newcommand{\unified}{34400}           % الثابت الكوني الموحد
-\newcommand{\saqrOrbit}{51840000000}    % مدار سقر (كم)
-\newcommand{\earthCircum}{43200}        % محيط الأرض (كم)
-\newcommand{\sunDist}{144000000}        % مسافة الشمس (كم)
-
-% ---------- الألوان السيادية ----------
+% 1. الحزم الأساسية للغة والتنسيق
+\usepackage[utf8]{inputenc}
+\usepackage[LAE,LFE]{fontenc}
+\usepackage[arabic,english]{babel}
+\usepackage{amsmath, amssymb, amsthm} % للحسابات والمعادلات
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
 \usepackage{xcolor}
-\definecolor{SovereignBlue}{RGB}{0,33,71}
-\definecolor{GoldCrown}{RGB}{212,175,55}
+\usepackage{tcolorbox} % للصناديق الملونة
 
-% ---------- صناديق البراهين ----------
-\usepackage{tcolorbox}
+% 2. تعريف الألوان السيادية
+\definecolor{SovereignBlue}{RGB}{0, 51, 102}
+\definecolor{SovereignGold}{RGB}{212, 175, 55}
+
+% 3. الثوابت السيادية (تعريف برمجى لاستخدامها في المعادلات)
+\newcommand{\unified}{34400}          % الثابت الموحد
+\newcommand{\geodesic}{43200}         % محيط الأرض الجيوديسي (كم)
+\newcommand{\saqarOrbit}{51840000000} % مدار سقر السنوي (كم)
+\newcommand{\lightHours}{48}          % مكافئ سقر بالساعات الضوئية
+\newcommand{\deficitHours}{10}        % العجز التراكمي (ساعات)
+
+% 4. تنسيق الصناديق (Sovereign Box)
 \newtcolorbox{sovereignbox}[1]{
-  colback=SovereignBlue!5,
   colframe=SovereignBlue,
+  colback=white,
   fonttitle=\bfseries,
-  title=#1
+  title=#1,
+  arc=5pt,
+  outer arc=5pt
 }
 
-% أمر الكتابة ثنائية اللغة
-\newcommand{\bilingual}[2]{%
-\begin{Parallel}[v]{0.48\textwidth}{0.48\textwidth}
-\ParallelLText{\selectlanguage{arabic}#1}
-\ParallelRText{\selectlanguage{english}#2}
-\end{Parallel}
-\vspace{0.8cm}
+% 5. أمر للكتابة بالعربية والإنجليزية معاً
+\newcommand{\bilingual}[2]{
+  \selectlanguage{arabic}#1
+  \selectlanguage{english}\par\textit{#2}
+  \selectlanguage{arabic}
 }
+
+% نهاية ملف preamble
